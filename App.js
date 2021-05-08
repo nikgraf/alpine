@@ -24,6 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import {Provider as PaperProvider, ActivityIndicator} from 'react-native-paper';
+
 const App: () => React$Node = () => {
   return (
     <>
@@ -40,6 +42,7 @@ const App: () => React$Node = () => {
           )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
+              <ActivityIndicator />
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
@@ -111,4 +114,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default () => (
+  <PaperProvider>
+    <App />
+  </PaperProvider>
+);
